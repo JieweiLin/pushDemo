@@ -9,9 +9,6 @@ import com.gexin.rp.sdk.template.TransmissionTemplate;
 
 /**
  * @author 林杰炜 linjw
- * @Title TODO 类描述
- * @Description TODO 详细描述
- * @Copyright 2014-现在 厦门神州鹰掌通家园项目组
  * @date 2019/4/2 9:59
  */
 public class GetuiIosPush {

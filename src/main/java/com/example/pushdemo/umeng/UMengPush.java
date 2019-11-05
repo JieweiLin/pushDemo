@@ -24,9 +24,6 @@ import java.util.Map;
 
 /**
  * @author 林杰炜 linjw
- * @Title TODO 类描述
- * @Description TODO 详细描述
- * @Copyright 2014-现在 厦门神州鹰掌通家园项目组
  * @date 2018/12/21 14:40
  */
 public class UMengPush extends PushClient{

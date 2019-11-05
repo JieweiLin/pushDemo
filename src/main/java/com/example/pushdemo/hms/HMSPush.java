@@ -21,9 +21,6 @@ import java.util.List;
 
 /**
  * @author 林杰炜 linjw
- * @Title TODO 类描述
- * @Description TODO 详细描述
- * @Copyright 2014-现在 厦门神州鹰掌通家园项目组
  * @date 2018/12/20 16:18
  */
 public class HMSPush {
@@ -61,6 +58,8 @@ public class HMSPush {
 
             JSONObject ext = new JSONObject();
             ext.put("biTag", "Parent、test");
+            ext.put("badgeAddNum", "1");
+            ext.put("badgeClass", "com.seebaby.login.ui.activity.LauncherActivity");
 
             JSONObject hps = new JSONObject();
             hps.put("msg", msg);

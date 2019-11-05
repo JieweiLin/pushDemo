@@ -19,9 +19,6 @@ import java.util.Map;
 
 /**
  * @author 林杰炜 linjw
- * @Title TODO 类描述
- * @Description TODO 详细描述
- * @Copyright 2014-现在 厦门神州鹰掌通家园项目组
  * @date 2018/12/27 10:51
  */
 public class JiGuangPush {
