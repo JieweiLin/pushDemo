@@ -26,7 +26,6 @@ public class MeiZuPush {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         IFlymePush push = new IFlymePush(appSecret);
-        //.extra(ExtraParam.CALLBACK.getKey(), "https://oa.szy.cn:15280/push/meizu/callback")
         //.customAttribute("{\"content\":\"{'key1':'value1','key2':'value2'}\"}")
         Map<String, String> content = Maps.newHashMap();
         content.put("data", "push");
@@ -37,10 +36,10 @@ public class MeiZuPush {
                 .content("content")
                 .clickType(3)
                 .customAttribute(JSON.toJSONString(content))
+                //.extra(ExtraParam.CALLBACK.getKey(), "https://oa.szy.cn:15280/push/meizu/callback")
                 .validTime(1)
                 .build();
         List<String> pushIds = Lists.newArrayList();
-        //pushIds.add("UU34b4f795e5d5d540b7642794d52626206424b785c5c");
         pushIds.add("Z9K487e017309717d627f50426948085909417a02780e");
         ResultPack<PushResult> result = null;
         try {

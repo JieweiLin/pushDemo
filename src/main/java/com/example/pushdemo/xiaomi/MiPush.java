@@ -1,7 +1,6 @@
 package com.example.pushdemo.xiaomi;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Maps;
 import com.xiaomi.xmpush.server.Constants;
 import com.xiaomi.xmpush.server.Message;
@@ -24,9 +23,6 @@ public class MiPush {
     private static String security = "+GfetTDy+om1wrK/M/+FYA==";
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        //.extra("callback", "https://oa.szy.cn:15280/push/mi/callback")
-        //.extra("callback.param", "teacher")
-
         Map<String, Object> map = Maps.newHashMap();
         Map<String, String> content = Maps.newHashMap();
         content.put("data", "push");
@@ -45,6 +41,8 @@ public class MiPush {
                 .timeToLive(360000)
                 .extra("flow_control", "4000")
                 .extra(Constants.EXTRA_PARAM_NOTIFY_FOREGROUND, "1")
+                //.extra("callback", "https://oa.szy.cn:15280/push/mi/callback")
+                //.extra("callback.param", "teacher")
                 .build();
 
         Result result = null;
