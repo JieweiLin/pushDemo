@@ -12,12 +12,14 @@ import java.util.UUID;
  * @date 2018/12/20 13:36
  */
 public class OppoPush {
-    private static String appKey = "6Yr896lXv9K4gKcWk4kk4c8gO";
-    private static String masterSecret = "870960678d16477d5ae373b3ab8256B3";
+    private static String appKey = "2nXqChrHn0u8Kso8kksO8g0CW";
+    private static String masterSecret = "98dE9b3fb687ba611A468A9e26dA2f41";
+    private static String authToken = "2727ab8f-4d96-4149-9d97-eb9b8debc41b";
 
     public static void main(String[] args) {
         try {
             Sender sender = new Sender(appKey, masterSecret);
+
             Notification notification = getNotification();
             Target target = Target.build("CN_d4926719a88fa4f774697fc228202c03");
             Result result = sender.unicastNotification(notification, target);
