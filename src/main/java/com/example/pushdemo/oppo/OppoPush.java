@@ -19,7 +19,6 @@ public class OppoPush {
     public static void main(String[] args) {
         try {
             Sender sender = new Sender(appKey, masterSecret);
-
             Notification notification = getNotification();
             Target target = Target.build("CN_d4926719a88fa4f774697fc228202c03");
             Result result = sender.unicastNotification(notification, target);
@@ -39,8 +38,8 @@ public class OppoPush {
         /*通知栏子title*/
         notification.setSubTitle("222");
         /*通知栏内容*/
-        notification.setContent("oppoPushDemoContent9");
-
+        notification.setContent("oppoPushDemoContent4G");
+        notification.setChannelId("zt_notification_channel_id");
         /*自定义消息Id*/
         notification.setAppMessageId(UUID.randomUUID().toString());
         /*动作类型：0-启动应用 1-打开应用内页（activity的intent action）2-打开网页 4-打开应用内页（activity） 【非必填，默认值为0】 5-Intent scheme URL*/
