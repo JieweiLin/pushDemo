@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration status="error" monitorInterval="60">
+
+	<Properties>
+  		<property name="SERVER_NAME">Push</property>
+  		<property name="LOG_HOME">${sys:catalina.home}/logs/${SERVER_NAME}Log</property>
+  		<property name="ConsoleLogLevel">debug</property>
+  	</Properties>
+
+  <appenders>
+  
+  	<!-- 控制台打印 -->
+    <Console name="Console" target="SYSTEM_OUT">
+	 	 <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+	  	 <PatternLayout  pattern="%d{yyyy.MM.dd '-' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+	</Console>
+	
+	<!-- 所有日志 -->
+	<RollingFile name="RollingFile" fileName="${LOG_HOME}/${SERVER_NAME}.log"
+                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${SERVER_NAME}-%d{yyyy-MM-dd-HHmmss}.log.gz">
+                 <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+      	 <PatternLayout charset="UTF-8" pattern="%d{yyyy.MM.dd '-' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+     	 <SizeBasedTriggeringPolicy size="50MB"/>
+    </RollingFile>
+    
+    <!-- 错误日志 -->
+    <RollingFile name="ERROR" fileName="${LOG_HOME}/error/error.log"
+                     filePattern="${LOG_HOME}/error/$${date:yyyy-MM}/error-%d{yyyy-MM-dd-HHmmss}.log.gz">
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy.MM.dd '-' HH:mm:ss} ${SERVER_NAME} 1.4.0.1 %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="50MB"/>
+    </RollingFile>
+
+      <RollingFile name="httpwarn" fileName="${LOG_HOME}/httpwarn/httpwarn.log"
+                   filePattern="${LOG_HOME}/httpwarn/$${date:yyyy-MM}/httpwarn-%d{yyyy-MM-dd-HHmmss}.log.gz">
+          <PatternLayout charset="UTF-8" pattern="%d{yyyy.MM.dd '-' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+          <SizeBasedTriggeringPolicy size="50MB"/>
+      </RollingFile>
+    
+    <RollingFile name="rule" fileName="${LOG_HOME}/rule/rule.log"
+                     filePattern="${LOG_HOME}/rule/$${date:yyyy-MM}/rule-%d{yyyy-MM-dd-HHmmss}.log.gz">
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout charset="UTF-8" pattern="%d{yyyy.MM.dd '-' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="50MB"/>
+    </RollingFile>
+    
+    <RollingFile name="dubbo" fileName="${LOG_HOME}/dubbo/dubbo.log"
+                 filePattern="${LOG_HOME}/dubbo/$${date:yyyy-MM}/$${date:yyyy-MM-dd}/dubbo-%d{yyyy-MM-dd-HHmmss}.log.gz">
+      	 <PatternLayout charset="UTF-8" pattern="%d{yyyy.MM.dd '-' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+      	 <SizeBasedTriggeringPolicy size="50MB"/>
+    </RollingFile>
+    
+     <RollingFile name="disconf" fileName="${LOG_HOME}/disconf/disconf.log"
+                 filePattern="${LOG_HOME}/disconf/$${date:yyyy-MM}/$${date:yyyy-MM-dd}/disconf-%d{yyyy-MM-dd-HHmmss}.log.gz">
+      	 <PatternLayout charset="UTF-8" pattern="%d{yyyy.MM.dd '-' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+      	 <SizeBasedTriggeringPolicy size="50MB"/>
+    </RollingFile>
+    
+     <RollingFile name="szyeye" fileName="${LOG_HOME}/szyeye/szyeye.log"
+                 filePattern="${LOG_HOME}/szyeye/$${date:yyyy-MM}/$${date:yyyy-MM-dd}/szyeye-%d{yyyy-MM-dd-HHmmss}.log.gz">
+      	 <PatternLayout charset="UTF-8" pattern="%msg%xEx%n"/>
+      	 <SizeBasedTriggeringPolicy size="50MB"/>
+   	 </RollingFile>
+   	 
+   	<RollingFile name="memcache" fileName="${LOG_HOME}/memcache/memcache.log"
+                 filePattern="${LOG_HOME}/memcache/$${date:yyyy-MM}/$${date:yyyy-MM-dd}/memcache-%d{yyyy-MM-dd-HHmmss}.log.gz">
+      	 <PatternLayout charset="UTF-8" pattern="%d{yyyy.MM.dd '-' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+      	 <SizeBasedTriggeringPolicy size="50MB"/>
+    </RollingFile>
+    
+    <RollingFile name="qcloudpush" fileName="${LOG_HOME}/qcloudpush/qcloudpush.log"
+                 filePattern="${LOG_HOME}/qcloudpush/$${date:yyyy-MM}/$${date:yyyy-MM-dd}/qcloudpush-%d{yyyy-MM-dd-HHmmss}.log.gz">
+      	 <PatternLayout charset="UTF-8" pattern="%d{yyyy.MM.dd '-' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+      	 <SizeBasedTriggeringPolicy size="50MB"/>
+    </RollingFile>
+    
+    <RollingFile name="costtime" fileName="${LOG_HOME}/costtime/costtime.log"
+                 filePattern="${LOG_HOME}/costtime/$${date:yyyy-MM}/$${date:yyyy-MM-dd}/costtime-%d{yyyy-MM-dd-HHmmss}.log.gz">
+         <PatternLayout charset="UTF-8" pattern="%d{yyyy.MM.dd '-' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+         <SizeBasedTriggeringPolicy size="50MB"/>
+    </RollingFile>
+      
+  </appenders>
+  
+  <loggers>
+  
+	<root level="debug">
+	  <appender-ref ref="RollingFile"/>
+	  <appender-ref ref="Console"/>
+	  <appender-ref ref="ERROR"/>
+    </root>
+    
+    <logger name="cache" level="info" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+    
+    
+     <logger name="org.springframework" level="error" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+    
+                  
+	<logger name="org.apache.http" level="info" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+    
+    <logger name="org.apache.http.wire" level="info" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+   
+	
+	<logger name="org.hibernate" level="error" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+    
+    <logger name="org.apache.struts2" level="error" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+    
+    <logger name="com.opensymphony.xwork2" level="error" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+	
+    <logger name="com.alibaba.dubbo" level="info" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="dubbo"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+    
+    <logger name="org.apache.zookeeper" level="error" additivity="false">
+        <appender-ref ref="Console"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+    
+    <logger  name="szyeye" level="info" additivity="false" >
+		<appender-ref ref="szyeye"/>
+	</logger >
+	
+	<logger name="com.baidu.disconf.client.watch.inner.NodeWatcher" level="warn" additivity="false">
+        <appender-ref ref="disconf"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+    
+    <logger name="com.szy.core.interceptor.MemcacheInterceptor" level="warn" additivity="false">
+         <appender-ref ref="memcache"/>
+         <appender-ref ref="Console"/>
+         <appender-ref ref="ERROR"/>
+    </logger>
+    
+    <logger name="qcloudpush" level="info" additivity="false">
+         <appender-ref ref="Console"/>
+         <appender-ref ref="ERROR"/>
+         <appender-ref ref="qcloudpush"/>
+    </logger>
+    
+    <logger name="costtime" level="info" additivity="false">
+         <appender-ref ref="Console"/>
+         <appender-ref ref="costtime"/>
+    </logger>
+    
+    <logger name="rule" level="info" additivity="false">
+         <appender-ref ref="rule"/>
+    </logger>
+
+      <logger name="httpwarn" level="info" additivity="false">
+          <appender-ref ref="httpwarn"/>
+      </logger>
+    
+  </loggers>
+  
+  
+</configuration>
