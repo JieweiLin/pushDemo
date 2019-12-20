@@ -41,8 +41,12 @@ public class MiPush {
                 .timeToLive(360000)
                 .extra("flow_control", "4000")
                 .extra(Constants.EXTRA_PARAM_NOTIFY_FOREGROUND, "1")
-                //.extra("callback", "https://oa.szy.cn:15280/push/mi/callback")
-                //.extra("callback.param", "teacher")
+                //回执http接口,最大长度128bit
+                .extra("callback", "")
+                //回执参数,最大长度64bit
+                .extra("callback.param", "")
+                //回执类型 1-送达;2-点击;3-送达或点击
+                .extra("callback.type", "")
                 .build();
 
         Result result = null;
