@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.meizu.push.sdk.server.IFlymePush;
+import com.meizu.push.sdk.server.constant.PushResponseCode;
 import com.meizu.push.sdk.server.constant.ResultPack;
 import com.meizu.push.sdk.server.model.push.PushResult;
 import com.meizu.push.sdk.server.model.push.VarnishedMessage;
@@ -56,6 +57,7 @@ public class MeiZuPush {
                 if (targetResultMap.isEmpty()) {
                     log.info("推送成功");
                 } else {
+                    //PushResponseCode
                     log.info("推送失败");
                 }
             }
