@@ -2,7 +2,6 @@ package com.example.pushdemo.hms;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import javafx.scene.input.DataFormat;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
@@ -24,11 +23,11 @@ import java.util.List;
  * @date 2018/12/20 16:18
  */
 public class HMSPush {
-    private static String appSecret = "fseh086aclpp8eagdd4txcy0syn2z8ze";
-    private static String appId = "10216510";
+    private static String appSecret = "";
+    private static String appId = "";
     private static String tokenUrl = "https://login.cloud.huawei.com/oauth2/v2/token";
     private static String apiUrl = "https://api.push.hicloud.com/pushsend.do";
-    private static String accessToken = "CFw3+3uJVQ7Db8RU5Dvmd/ncCIXZru5Z0o/oTHtdhjJjwFiQ+QV9SFeCatiS1tX04FSeWEvTpWEuverkx6x49Q==";
+    private static String accessToken = "";
     private static long tokenExpiredTime = 1547172731869L;
 
     public static void main(String[] args) {
@@ -37,7 +36,7 @@ public class HMSPush {
         }
         try {
             JSONArray deviceTokens = new JSONArray();
-            deviceTokens.add("0864678039742018200000352800CN01");
+            deviceTokens.add("");
 
             JSONObject body = new JSONObject();
             body.put("title", "title");
@@ -69,7 +68,7 @@ public class HMSPush {
             payload.put("hps", hps);
 
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-            Long time = System.currentTimeMillis() + 30*60*1000;
+            Long time = System.currentTimeMillis() + 30 * 60 * 1000;
             String expireTime = df.format(time);
 
             String postBody = MessageFormat.format("access_token={0}&nsp_svc={1}&nsp_ts={2}&device_token_list={3}&payload={4}&expire_time={5}",

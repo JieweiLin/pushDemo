@@ -11,9 +11,9 @@ import java.util.Map;
  */
 public class GetuiPushResult {
 
-    private static final String mastersecret = "Ml3xwhmLlBAzPNa33odPu2";
-    private static final String appkey = "6wvPDgXG8h5MIzqzWxHgWA";
-    private static final String taskid = "OSAPNS-1227_iMKPgpzwTX8Xc5ByKqfdn4";
+    private static final String mastersecret = "";
+    private static final String appkey = "";
+    private static final String taskid = "";
     static String host = "http://sdk.open.api.igexin.com/apiex.htm";
 
     public static void main(String[] args) {

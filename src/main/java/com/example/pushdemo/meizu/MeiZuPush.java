@@ -21,8 +21,8 @@ import java.util.Map;
  */
 public class MeiZuPush {
 
-    private static String appSecret = "3970fdf76f054439a489d6603255320a";
-    private static Long appId = 112427L;
+    private static String appSecret = "";
+    private static Long appId = 0L;
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         IFlymePush push = new IFlymePush(appSecret);
@@ -40,7 +40,7 @@ public class MeiZuPush {
                 .validTime(1)
                 .build();
         List<String> pushIds = Lists.newArrayList();
-        pushIds.add("Z9K487e017309717d627f50426948085909417a02780e");
+        pushIds.add("");
         ResultPack<PushResult> result = null;
         try {
             result = push.pushMessage(message, pushIds, 0);

@@ -24,11 +24,11 @@ import java.util.UUID;
  */
 public class VivoPush {
 
-    private static String appId = "10337";
-    private static String appKey = "b46efd9a-59e3-45f9-bc35-cc0ee888b0cc";
-    private static String appSecret = "91e92e74-7709-47fc-9eb1-5bddc9265f78";
+    private static String appId = "";
+    private static String appKey = "";
+    private static String appSecret = "";
     private static final String host = "https://api-push.vivo.com.cn";
-    private static String authToken = "ff6ee833-9df1-4453-8daa-79ecccf620eb";
+    private static String authToken = "";
 
     public static void main(String[] args) {
         if (StringUtils.isBlank(authToken)) {
@@ -58,7 +58,7 @@ public class VivoPush {
         String url = host.concat("/message/send");
 
         Map<String, Object> body = Maps.newHashMap();
-        body.put("regId", "15454476856151033754528");
+        body.put("regId", "");
         body.put("notifyType", 1);
         body.put("title", "通知title");
         body.put("content", "通知content你好");

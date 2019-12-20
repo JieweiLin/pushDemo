@@ -1,7 +1,6 @@
 package com.example.pushdemo.getui;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.gexin.rp.sdk.base.IIGtPush;
 import com.gexin.rp.sdk.base.IPushResult;
 import com.gexin.rp.sdk.base.impl.SingleMessage;
@@ -22,9 +21,9 @@ import java.util.Map;
  */
 public class GetuiPushV2 {
     private static String apihost = "http://sdk.open.api.igexin.com/apiex.htm";
-    private static String appKey = "yCB916qL6470SRuwMoRgv9";
-    private static String masterSecret = "aY9DN6BBnv5pgwz7nmOXx1";
-    private static String appId = "TgnJrR1ykI7aQ0iu0m9N5A";
+    private static String appKey = "";
+    private static String masterSecret = "";
+    private static String appId = "";
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         IIGtPush push = new IGtPush(apihost, appKey, masterSecret);
@@ -54,13 +53,9 @@ public class GetuiPushV2 {
         message.setOfflineExpireTime(3600);
         Target target = new Target();
         target.setAppId(appId);
-        //target.setClientId("86bb11dd6fee28dc9f119b3416393789");
-        //target.setClientId("8207b41ff2c0e292ab2febee8a3cf57a");
-        //target.setClientId("a0003ec723057c6a0cbf124dfe12f7d7");
-        //target.setClientId("ae5af56fe108696fd32ff1f8c621b7ef");
-        target.setClientId("8e059f5c3d66374e9c85d2ff30010f01");
+        target.setClientId("");
 
         IPushResult result = push.pushMessageToSingle(message, target);
-        System.out.println("time:" + System.currentTimeMillis() +" "+ JSON.toJSONString(result));
+        System.out.println("time:" + System.currentTimeMillis() + " " + JSON.toJSONString(result));
     }
 }

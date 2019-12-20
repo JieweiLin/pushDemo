@@ -11,7 +11,6 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Map;
 import java.util.UUID;
 
@@ -20,7 +19,7 @@ import java.util.UUID;
  * @date 2019/11/5 11:03
  */
 public class MiOverseasPush {
-    private static String security = "+GfetTDy+om1wrK/M/+FYA==";
+    private static String security = "";
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         Map<String, Object> map = Maps.newHashMap();
@@ -47,7 +46,7 @@ public class MiOverseasPush {
 
         Result result = null;
         try {
-            result = sender.send(message, "VhjYc1RNVp7QaePs4vPPj7hQRIJGWZMIcY2YAlo4xSVnrHdbxqmXMBIXToy3v3y3", 0);
+            result = sender.send(message, "", 0);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {

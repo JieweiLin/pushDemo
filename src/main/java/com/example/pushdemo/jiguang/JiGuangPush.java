@@ -10,8 +10,6 @@ import cn.jpush.api.push.model.Options;
 import cn.jpush.api.push.model.Platform;
 import cn.jpush.api.push.model.PushPayload;
 import cn.jpush.api.push.model.audience.Audience;
-import cn.jpush.api.push.model.notification.AndroidNotification;
-import cn.jpush.api.push.model.notification.Notification;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
 
@@ -23,10 +21,9 @@ import java.util.Map;
  */
 public class JiGuangPush {
 
-    static String masterSecret = "27c0599b05f0d947e5c06ebd";
-    static String appKey = "af84d3697a0d42ff452f239d";
-    //static String regId = "170976fa8adcf2eb5bd";
-    static String regId = "1507bfd3f7808dc8c68";
+    static String masterSecret = "";
+    static String appKey = "";
+    static String regId = "";
 
     public static void main(String[] args) {
         JPushClient jPushClient = new JPushClient(masterSecret, appKey, null, ClientConfig.getInstance());
